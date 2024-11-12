@@ -1,33 +1,31 @@
 package org.example.controllers;
 
-import org.example.models.Endereco;
-import org.example.services.EnderecoService;
+import org.example.models.Agenda;
+import org.example.services.AgendaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
-public class EnderecoController {
+public class AgendaController {
 
     @Autowired
-    public EnderecoService service;
+    public AgendaService service;
 
     @GetMapping("/")
     public ModelAndView findAll(){
-        ModelAndView mv = new ModelAndView("/endereco");
-        mv.addObject("Enderecos", service.findAll());
+        ModelAndView mv = new ModelAndView("/agenda");
+        mv.addObject("Agenda", service.findAll());
 
         return mv;
     }
 
     @GetMapping("/add")
-    public ModelAndView add(Endereco endereco){
-        ModelAndView mv = new ModelAndView("/endereco");
-        mv.addObject("endereco", endereco);
+    public ModelAndView add(Agenda agenda){
+        ModelAndView mv = new ModelAndView("/agenda");
+        mv.addObject("agenda", agenda);
 
         return mv;
     }
@@ -41,13 +39,13 @@ public class EnderecoController {
     }
 
     @PostMapping("/save")
-    public ModelAndView save(Endereco endereco, BindingResult result) {
+    public ModelAndView save(Agenda agenda, BindingResult result) {
 
         if(result.hasErrors()) {
-            return add(endereco);
+            return add(agenda);
         }
 
-        service.save(endereco);
+        service.save(agenda);
 
         return findAll();
     }

@@ -1,7 +1,7 @@
 package org.example.controllers;
 
-import org.example.models.Endereco;
-import org.example.services.EnderecoService;
+import org.example.models.Usuario;
+import org.example.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -11,23 +11,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class EnderecoController {
+public class UsuarioController {
 
     @Autowired
-    public EnderecoService service;
+    public UsuarioService service;
 
     @GetMapping("/")
     public ModelAndView findAll(){
-        ModelAndView mv = new ModelAndView("/endereco");
-        mv.addObject("Enderecos", service.findAll());
+        ModelAndView mv = new ModelAndView("/Usuario");
+        mv.addObject("Usuario", service.findAll());
 
         return mv;
     }
 
     @GetMapping("/add")
-    public ModelAndView add(Endereco endereco){
-        ModelAndView mv = new ModelAndView("/endereco");
-        mv.addObject("endereco", endereco);
+    public ModelAndView add(Usuario user){
+        ModelAndView mv = new ModelAndView("/usuario");
+        mv.addObject("usuario", user);
 
         return mv;
     }
@@ -41,15 +41,14 @@ public class EnderecoController {
     }
 
     @PostMapping("/save")
-    public ModelAndView save(Endereco endereco, BindingResult result) {
+    public ModelAndView save(Usuario user, BindingResult result) {
 
         if(result.hasErrors()) {
-            return add(endereco);
+            return add(user);
         }
 
-        service.save(endereco);
+        service.save(user);
 
         return findAll();
     }
-
 }
