@@ -7,16 +7,4 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {
-    /*
-    private static List<Endereco> lst = new ArrayList<>();
-
-    public Endereco add(Endereco endereco) {
-        lst.add(endereco);
-        return endereco;
-    }
-    public List<Endereco> getAll(){
-        return lst;
-    }
-    */
-}
+public interface EnderecoRepository extends JpaRepository<Endereco, Integer> {}

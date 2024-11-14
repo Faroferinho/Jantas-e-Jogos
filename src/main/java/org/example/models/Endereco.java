@@ -1,10 +1,12 @@
 package org.example.models;
 
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jdk.jfr.Enabled;
 
-@Enabled
+@Entity
 public class Endereco {
     @Id
     @GeneratedValue

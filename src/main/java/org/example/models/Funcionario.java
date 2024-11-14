@@ -1,8 +1,6 @@
 package org.example.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Funcionario {
@@ -13,8 +11,10 @@ public class Funcionario {
     private String nome;
     private String telefone;
     private String email;
-    private Endereco endereco;
     private double salario;
+
+    @ManyToOne
+    private Endereco endereco;
 
     public int getId() {
         return id;

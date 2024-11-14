@@ -1,8 +1,6 @@
 package org.example.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -14,6 +12,8 @@ public class Usuario {
     private String usuario;
     private String senha;
     private Date dtCadastro;
+
+    @OneToMany
     private TipoAcesso tipoAcesso;
 
     public int getId() {

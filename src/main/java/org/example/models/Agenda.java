@@ -3,6 +3,7 @@ package org.example.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 import java.util.Date;
 
@@ -12,12 +13,14 @@ public class Agenda {
     @GeneratedValue
     private int id;
     private String descricao;
-    private Servico servico;
     private Date date;
+    private boolean status;
+
+    @ManyToMany
+    private Servico servico;
     private Cliente cliente;
     private Usuario usuario;
     private Funcionario funcionario;
-    private boolean status;
 
     public int getId() {
         return id;
@@ -65,5 +68,21 @@ public class Agenda {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+
+    public boolean getStatus(){
+        return status;
+    }
+
+    public void setStatus(boolean status){
+        this.status = status;
     }
 }
