@@ -18,7 +18,7 @@ public class TipoAcessoSerivce {
         return repository.findAll();
     }
 
-    public Optional<TipoAcesso> findOne(int index){
+    public Optional<TipoAcesso> findOne(long index){
         return repository.findById(index);
     }
 
@@ -26,7 +26,7 @@ public class TipoAcessoSerivce {
         return repository.save(endereco);
     }
 
-    public void delete(int index){
+    public void delete(long index){
         repository.deleteById(index);
     }
 

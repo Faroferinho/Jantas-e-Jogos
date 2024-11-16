@@ -18,7 +18,7 @@ public class ClienteService {
         return repository.findAll();
     }
 
-    public Optional<Cliente> findOne(int index){
+    public Optional<Cliente> findOne(long index){
         return repository.findById(index);
     }
 
@@ -26,7 +26,7 @@ public class ClienteService {
         return repository.save(cliente);
     }
 
-    public void delete(int index){
+    public void delete(long index){
         repository.deleteById(index);
     }
 

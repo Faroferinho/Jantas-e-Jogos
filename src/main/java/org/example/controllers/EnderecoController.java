@@ -16,7 +16,7 @@ public class EnderecoController {
     @Autowired
     public EnderecoService service;
 
-    @GetMapping("/")
+    @GetMapping("/endereco")
     public ModelAndView findAll(){
         ModelAndView mv = new ModelAndView("/endereco");
         mv.addObject("Enderecos", service.findAll());
@@ -24,7 +24,7 @@ public class EnderecoController {
         return mv;
     }
 
-    @GetMapping("/add")
+    @GetMapping("/add/endereco")
     public ModelAndView add(Endereco endereco){
         ModelAndView mv = new ModelAndView("/endereco");
         mv.addObject("endereco", endereco);
@@ -32,15 +32,15 @@ public class EnderecoController {
         return mv;
     }
 
-    @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable("id") int id) {
+    @GetMapping("/delete/endereco/{id}")
+    public ModelAndView delete(@PathVariable("id") long id) {
 
         service.delete(id);
 
         return findAll();
     }
 
-    @PostMapping("/save")
+    @PostMapping("/save/endereco")
     public ModelAndView save(Endereco endereco, BindingResult result) {
 
         if(result.hasErrors()) {

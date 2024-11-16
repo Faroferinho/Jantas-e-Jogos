@@ -1,16 +1,14 @@
 package org.example.models;
 
-import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jdk.jfr.Enabled;
 
 @Entity
 public class Endereco {
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String logradouro;
     private String uf;
     private String estado;
@@ -19,11 +17,11 @@ public class Endereco {
     private int numero;
     private String complemento;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

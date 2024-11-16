@@ -18,7 +18,7 @@ public class ServicoService {
         return repository.findAll();
     }
 
-    public Optional<Servico> findOne(int index){
+    public Optional<Servico> findOne(long index){
         return repository.findById(index);
     }
 
@@ -26,7 +26,7 @@ public class ServicoService {
         return repository.save(servico);
     }
 
-    public void delete(int index){
+    public void delete(long index){
         repository.deleteById(index);
     }
 

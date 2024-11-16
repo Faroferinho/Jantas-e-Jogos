@@ -16,7 +16,7 @@ public class ServicoController {
     @Autowired
     public ServicoService service;
 
-    @GetMapping("/")
+    @GetMapping("/servico")
     public ModelAndView findAll(){
         ModelAndView mv = new ModelAndView("/Servicos");
         mv.addObject("Servicos", service.findAll());
@@ -24,7 +24,7 @@ public class ServicoController {
         return mv;
     }
 
-    @GetMapping("/add")
+    @GetMapping("/add/servico")
     public ModelAndView add(Servico servico){
         ModelAndView mv = new ModelAndView("/servico");
         mv.addObject("servico", servico);
@@ -32,15 +32,15 @@ public class ServicoController {
         return mv;
     }
 
-    @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable("id") int id) {
+    @GetMapping("/delete/servico/{id}")
+    public ModelAndView delete(@PathVariable("id") long id) {
 
         service.delete(id);
 
         return findAll();
     }
 
-    @PostMapping("/save")
+    @PostMapping("/save/servico")
     public ModelAndView save(Servico servico, BindingResult result) {
 
         if(result.hasErrors()) {

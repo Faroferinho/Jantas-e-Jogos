@@ -14,7 +14,7 @@ public class AgendaController {
     @Autowired
     public AgendaService service;
 
-    @GetMapping("/")
+    @GetMapping("/agenda")
     public ModelAndView findAll(){
         ModelAndView mv = new ModelAndView("/agenda");
         mv.addObject("Agenda", service.findAll());
@@ -22,7 +22,7 @@ public class AgendaController {
         return mv;
     }
 
-    @GetMapping("/add")
+    @GetMapping("/add/agenda")
     public ModelAndView add(Agenda agenda){
         ModelAndView mv = new ModelAndView("/agenda");
         mv.addObject("agenda", agenda);
@@ -30,15 +30,15 @@ public class AgendaController {
         return mv;
     }
 
-    @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable("id") int id) {
+    @GetMapping("/delete/agenda/{id}")
+    public ModelAndView delete(@PathVariable("id") long id) {
 
         service.delete(id);
 
         return findAll();
     }
 
-    @PostMapping("/save")
+    @PostMapping("/save/agenda")
     public ModelAndView save(Agenda agenda, BindingResult result) {
 
         if(result.hasErrors()) {

@@ -18,7 +18,7 @@ public class FuncionarioService {
         return repository.findAll();
     }
 
-    public Optional<Funcionario> findOne(int index){
+    public Optional<Funcionario> findOne(long index){
         return repository.findById(index);
     }
 
@@ -26,7 +26,7 @@ public class FuncionarioService {
         return repository.save(funcionario);
     }
 
-    public void delete(int index){
+    public void delete(long index){
         repository.deleteById(index);
     }
 

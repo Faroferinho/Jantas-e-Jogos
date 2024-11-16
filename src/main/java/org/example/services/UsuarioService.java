@@ -18,7 +18,7 @@ public class UsuarioService {
         return repository.findAll();
     }
 
-    public Optional<Usuario> findOne(int index){
+    public Optional<Usuario> findOne(long index){
         return repository.findById(index);
     }
 
@@ -26,7 +26,7 @@ public class UsuarioService {
         return repository.save(usuario);
     }
 
-    public void delete(int index){
+    public void delete(long index){
         repository.deleteById(index);
     }
 

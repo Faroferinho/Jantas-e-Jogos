@@ -16,7 +16,7 @@ public class FuncionarioController {
     @Autowired
     private FuncionarioService service;
 
-    @GetMapping("/")
+    @GetMapping("/funcionario")
     public ModelAndView findAll(){
         ModelAndView mv = new ModelAndView("/");
         mv.addObject("funcionario", service.findAll());
@@ -24,7 +24,7 @@ public class FuncionarioController {
         return mv;
     }
 
-    @GetMapping("/add")
+    @GetMapping("/add/funcionario")
     public ModelAndView add(Funcionario funcionario){
         ModelAndView mv = new ModelAndView("/funcionarioAdd");
         mv.addObject("funcionario", funcionario);
@@ -32,20 +32,20 @@ public class FuncionarioController {
         return mv;
     }
 
-    @GetMapping("/edit/{id}")
-    public ModelAndView edit(@PathVariable("id") int id){
+    @GetMapping("/edit/funcionario/{id}")
+    public ModelAndView edit(@PathVariable("id") long id){
         return add(service.findOne(id).get());
     }
 
-    @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable("id") int id) {
+    @GetMapping("/delete/funcionario/{id}")
+    public ModelAndView delete(@PathVariable("id") long id) {
 
         service.delete(id);
 
         return findAll();
     }
 
-    @PostMapping("/save")
+    @PostMapping("/save/funcionario")
     public ModelAndView save(Funcionario funcionario, BindingResult result) {
 
         if(result.hasErrors()) {

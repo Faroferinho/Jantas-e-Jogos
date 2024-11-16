@@ -7,20 +7,19 @@ public class Funcionario {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String nome;
     private String telefone;
     private String email;
     private double salario;
 
-    @ManyToOne
     private Endereco endereco;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 

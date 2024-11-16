@@ -18,7 +18,7 @@ public class EnderecoService {
         return repository.findAll();
     }
 
-    public Optional<Endereco> findOne(int index){
+    public Optional<Endereco> findOne(long index){
         return repository.findById(index);
     }
 
@@ -26,7 +26,7 @@ public class EnderecoService {
         return repository.save(endereco);
     }
 
-    public void delete(int index){
+    public void delete(long index){
         repository.deleteById(index);
     }
 

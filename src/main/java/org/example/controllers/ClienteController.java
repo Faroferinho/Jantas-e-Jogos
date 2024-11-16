@@ -16,7 +16,7 @@ public class ClienteController {
     @Autowired
     private ClienteService service;
 
-    @GetMapping("/")
+    @GetMapping("/cliente")
     public ModelAndView findAll() {
 
         ModelAndView mv = new ModelAndView("/cliente");
@@ -25,7 +25,7 @@ public class ClienteController {
         return mv;
     }
 
-    @GetMapping("/add")
+    @GetMapping("/add/cliente")
     public ModelAndView add(Cliente cliente) {
 
         ModelAndView mv = new ModelAndView("/postAdd");
@@ -34,21 +34,21 @@ public class ClienteController {
         return mv;
     }
 
-    @GetMapping("/edit/{id}")
-    public ModelAndView edit(@PathVariable("id") int id) {
+    @GetMapping("/edit/cliente/{id}")
+    public ModelAndView edit(@PathVariable("id") long id) {
 
         return add(service.findOne(id).get());
     }
 
-    @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable("id") int id) {
+    @GetMapping("/delete/cliente/{id}")
+    public ModelAndView delete(@PathVariable("id") long id) {
 
         service.delete(id);
 
         return findAll();
     }
 
-    @PostMapping("/save")
+    @PostMapping("/save/cliente")
     public ModelAndView save(Cliente cliente, BindingResult result) {
 
         if(result.hasErrors()) {

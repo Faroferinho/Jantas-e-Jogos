@@ -16,7 +16,7 @@ public class TipoAcessoController {
     @Autowired
     public TipoAcessoSerivce service;
 
-    @GetMapping("/")
+    @GetMapping("/tipo-acesso")
     public ModelAndView findAll(){
         ModelAndView mv = new ModelAndView("/Acessos");
         mv.addObject("Acessos", service.findAll());
@@ -24,7 +24,7 @@ public class TipoAcessoController {
         return mv;
     }
 
-    @GetMapping("/add")
+    @GetMapping("/add/tipo-acesso")
     public ModelAndView add(TipoAcesso acesso){
         ModelAndView mv = new ModelAndView("/acesso");
         mv.addObject("acesso", acesso);
@@ -32,15 +32,15 @@ public class TipoAcessoController {
         return mv;
     }
 
-    @GetMapping("/delete/{id}")
-    public ModelAndView delete(@PathVariable("id") int id) {
+    @GetMapping("/delete/tipo-acesso/{id}")
+    public ModelAndView delete(@PathVariable("id") long id) {
 
         service.delete(id);
 
         return findAll();
     }
 
-    @PostMapping("/save")
+    @PostMapping("/save/tipo-acesso")
     public ModelAndView save(TipoAcesso acesso, BindingResult result) {
 
         if(result.hasErrors()) {

@@ -18,7 +18,7 @@ public class AgendaService {
         return repository.findAll();
     }
 
-    public Optional<Agenda> findOne(int index){
+    public Optional<Agenda> findOne(long index){
         return repository.findById(index);
     }
 
@@ -26,7 +26,7 @@ public class AgendaService {
         return repository.save(agenda);
     }
 
-    public void delete(int index){
+    public void delete(long index){
         repository.deleteById(index);
     }
 

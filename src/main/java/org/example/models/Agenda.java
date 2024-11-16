@@ -1,22 +1,18 @@
 package org.example.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
 public class Agenda {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String descricao;
     private Date date;
     private boolean status;
 
-    @ManyToMany
     private Servico servico;
     private Cliente cliente;
     private Usuario usuario;
